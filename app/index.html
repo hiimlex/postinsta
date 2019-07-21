@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instagram Feed Test</title>
+
+
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/magnific.css">
+	<link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+
+
+
+<div class="container">
+
+	<div id="instafeed" class="row gallery"></div>
+
+</div>
+
+
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/instafeed.min.js"></script>
+<script src="./js/magnific.min.js"></script>
+<script>
+$(document).ready(function() {
+
+
+var userFeed = new Instafeed({
+		get: 'user',
+		userId: '6766723606	',
+		limit: 12,
+		resolution: 'low_resolution',
+		accessToken: '6766723606.aeeff59.1676afb47e7643fa992457c7bd0b0950',
+		sortBy: 'most-recent',
+		template: '<div class="col-lg-3 instaimg"><a href="{{image}}" title="{{caption}}" target="_blank"><img src="{{image}}" alt="{{caption}}" class="img-fluid"/></a></div>',
+});
+
+
+userFeed.run();
+
+
+// This will create a single gallery from all elements that have class "gallery-item"
+$('.gallery').magnificPopup({
+		type: 'image',
+		delegate: 'a',
+		gallery: {
+				enabled: true
+		}
+});
+
+
+});</script>
+
+</body>
+</html>
